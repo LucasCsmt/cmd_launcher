@@ -1,0 +1,14 @@
+.TH CLIENT 1 "30 décembre, 2023"
+.SH NAME
+client \- Exécute une commande sur un lanceur.
+.SH SYNOPSIS
+.B client
+.RI [ cmd1\ |\ cmd2\ |\ ... ]
+.SH DESCRIPTION
+Ce programme ouvre un segment de mémoire partagée contenant une file synchronisée préalablement ouverte par le lanceur. Si la file n'existe pas c'est
+qu'il n'y a pas de lanceur en cours d'exécution. Le client se termine alors 
+avec une erreur. Si la file existe, le client y dépose la commande passée en 
+paramètre. Il attend ensuite que l'utilisateur ferme l'entrée standard et 
+que le lanceur ait fini d'exécuter la commande pour se terminer.
+.SH AUTHOR
+Lucas Coussement

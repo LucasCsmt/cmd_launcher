@@ -1,0 +1,17 @@
+.TH LANCEUR 1 "30 décembre, 2023"
+.SH NAME
+lanceur \- initialise une zone de mémoire partagée contenant une file synchronisée. Exécutes les commandes envoyées par les clients via la file.
+.SH SYNOPSIS
+.B lanceur
+.RI [ options ]
+.SH DESCRIPTION
+Ce programme initialise une zone de mémoire partagée contenant une file synchronisée. Une fois initialisé, le lanceur se met en attente de commandes. Lorsqu'une commande est enfilée dans la file, le lanceur la récupère, créer 
+un thread qui exécute la commande et se remet en attente de commande. L'entrée standard, la sortie standard et la sortie d'erreur de la commande sont redirigées vers le client dans des tubes nommés préalablement définis par le client.
+.SH OPTIONS
+.TP
+.B \-d
+Cette option doit être suivi d'un entier qui correspondra au délai d'inactivité.
+Ce délai d'inactivité représente le temps en secondes au bout duquel le lanceur 
+se termine si aucun client ne lance de commande via la file.
+.SH AUTHOR
+Lucas Coussement
